@@ -4,7 +4,7 @@ from django.contrib import admin
 from .models import (
     UserProfile, Fantasy, CompatibilityTest, CoachingSession,
     Product, Order, Achievement, Challenge, Reward, Redemption,
-    Benefit, EscortProfile, Mission, Friendship, EscortProfile
+    Benefit, EscortProfile, Mission, Friendship
 )
 from django.contrib.auth.models import User
 from django.contrib.auth.admin import UserAdmin
