@@ -140,7 +140,6 @@ class FriendshipAdmin(admin.ModelAdmin):
     readonly_fields = ('created_at',)
 
 # Configuración adicional para el modelo UserProfile
-@admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'role', 'level', 'points', 'total_earnings')
     search_fields = ('user__username', 'user__email')

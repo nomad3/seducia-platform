@@ -1,6 +1,8 @@
 # main_app/views.py
 
 from rest_framework import viewsets, permissions, status, generics
+from rest_framework.views import APIView
+from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from .models import (
@@ -135,8 +137,9 @@ class EscortProfileListView(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
 class RunScraperView(APIView):
-    permission_classes = [permissions.IsAdminUser]
-
-    def post(self, request):
-        run_escort_scraper.delay()
-        return Response({'status': 'Scraper started.'})
+    def post(self, request, format=None):
+        # Your logic here
+        data = request.data
+        # Perform scraping or call your scraper service
+        result = run_your_scraper(data)
+        return Response(result, status=status.HTTP_200_OK)
