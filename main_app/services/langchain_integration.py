@@ -1,9 +1,9 @@
 # main_app/services/langchain_integration.py
 
 from langchain.chains import LLMChain
-from langchain.llms import OpenAI
+from langchain_community.llms import OpenAI
 from langchain.prompts import PromptTemplate
-from langsmith import LangsmithClient
+from langsmith import Client as LangsmithClient
 
 class LangChainIntegration:
     def __init__(self):

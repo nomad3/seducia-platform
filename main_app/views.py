@@ -1,15 +1,15 @@
 # main_app/views.py
 
-from rest_framework import viewsets, permissions, status
+from rest_framework import viewsets, permissions, status, generics
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from .models import (
     UserProfile, Fantasy, CompatibilityTest, CoachingSession,
-    Product, Order, Achievement, Challenge, Reward, Redemption, Benefit
+    Product, Order, Achievement, Challenge, Reward, Redemption, Benefit, EscortProfile
 )
 from .serializers import (
     UserProfileSerializer, FantasySerializer, CompatibilityTestSerializer, CoachingSessionSerializer,
-    ProductSerializer, OrderSerializer, AchievementSerializer, ChallengeSerializer, RewardSerializer, RedemptionSerializer, BenefitSerializer
+    ProductSerializer, OrderSerializer, AchievementSerializer, ChallengeSerializer, RewardSerializer, RedemptionSerializer, BenefitSerializer, EscortProfileSerializer
 )
 from .permissions import IsOwnerOrReadOnly, IsCoach
 from django.shortcuts import get_object_or_404

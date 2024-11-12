@@ -3,7 +3,7 @@
 from rest_framework import serializers
 from .models import (
     UserProfile, Fantasy, CompatibilityTest, CoachingSession,
-    Product, Order, Achievement, Challenge, Reward, Redemption, Benefit
+    Product, Order, Achievement, Challenge, Reward, Redemption, Benefit, EscortProfile
 )
 from django.contrib.auth.models import User
 
