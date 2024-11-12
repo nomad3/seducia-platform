@@ -1,0 +1,19 @@
+# render.yaml
+services:
+  - type: web
+    name: seducia-web
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn seducia.wsgi:application --bind 0.0.0.0:8000"
+
+  - type: worker
+    name: seducia-celery
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "celery -A seducia worker -l info"
+
+  - type: worker
+    name: seducia-celery-beat
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "celery -A seducia beat -l info"
