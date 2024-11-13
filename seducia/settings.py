@@ -103,7 +103,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Archivos media
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
 # Configuración de DRF
 REST_FRAMEWORK = {
