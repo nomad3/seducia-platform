@@ -1,4 +1,4 @@
-# seducia/settings.py
+# settings.py
 
 import os
 import environ
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
 # Middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Añadir WhiteNoise
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     # Agregar protección CSRF
@@ -101,12 +101,12 @@ USE_TZ = True
 # Archivos estáticos
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# Directorios adicionales donde Django buscará archivos estáticos
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+# Servir archivos estáticos con WhiteNoise
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Archivos media
 MEDIA_URL = '/media/'
@@ -157,9 +157,4 @@ LOGGING = {
         'console': {'class': 'logging.StreamHandler', 'formatter': 'verbose',},
     },
     'root': {'handlers': ['console'], 'level': 'INFO',},
-}
-SOCIAL_MEDIA_API_KEYS = {
-    "facebook": env("FACEBOOK_API_KEY", default=""),
-    "instagram": env("INSTAGRAM_API_KEY", default=""),
-    # ... otras plataformas ...
 }

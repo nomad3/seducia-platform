@@ -12,8 +12,13 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copiar el código de la aplicación
 COPY . .
 
+# Crear el directorio 'static' si no existe
+RUN mkdir -p /app/static
+
+# Limpiar archivos de caché (opcional)
+RUN find . -name "*.pyc" -delete && find . -name "__pycache__" -delete
+
 # Ejecutar collectstatic
-# Se ejecuta como root antes de cambiar la propiedad de los archivos
 RUN python manage.py collectstatic --noinput
 
 # Cambiar la propiedad de los archivos al usuario no root
